@@ -1,0 +1,23 @@
+<configuration scan="true" scanPeriod="3 seconds" debug="false">
+
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<!-- <property resource="adapter.properties" /> -->
+	<property name="namespace" value="${kubernetes.namespace}"></property>
+
+	<property name="defaultPattern"
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} $ threadId:%X{PID} %-5level %logger{20} %m%n" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${defaultPattern}</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.g2.exercise.ws" level="INFO"/>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
